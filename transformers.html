@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformers | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html">📍 Roadmap</a>
+                    <a href="ml.html">📘 Machine Learning</a>
+                    <a href="dl.html">📗 Deep Learning</a>
+                    <a href="transformers.html" class="active">📕 Transformers</a>
+                    <a href="llm.html">📙 LLMs</a>
+                    <a href="rag.html">📒 RAG</a>
+                    <a href="agents.html">📓 AI Agents</a>
+                    <a href="algorithms.html">📑 Algorithms</a>
+                    <a href="references.html">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <h1 class="page-header delay-1">Transformers Architecture</h1>
+
+                <section class="glass delay-1" style="padding: 2rem; margin-bottom: 2rem;">
+                    <h2>The "Attention is All You Need" Revolution</h2>
+                    <p>Introduced by Google in 2017, the Transformer architecture revolutionized Natural Language
+                        Processing by dispensing with recurrence (RNNs/LSTMs) entirely, relying solely on an
+                        <strong>Attention Mechanism</strong> to draw global dependencies between input and output.</p>
+                </section>
+
+                <div class="accordion delay-2">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Self-Attention Mechanism
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is it?</strong> A mechanism allowing the model to look at other words
+                                    in the input sequence to gain a better understanding of the current word. For
+                                    example, knowing that "it" refers to the "animal" in the sentence "The animal didn't
+                                    cross the street because <em>it</em> was too tired."</li>
+                                <li><strong>Query, Key, Value:</strong> Mapped concepts from retreival systems. A word's
+                                    Query vector is scored against every other word's Key vector, yielding a weight used
+                                    to sum the Value vectors.</li>
+                                <li><strong>Multi-Head Attention:</strong> Running the attention mechanism multiple
+                                    times in parallel to capture different types of relationships (e.g., grammatical vs
+                                    semantic).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Encoder-Decoder Architecture
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Encoder:</strong> Processes the input sequence into a continuous
+                                    representation that holds all the learned information. Composed of Self-Attention
+                                    and Feed-Forward Neural Networks.</li>
+                                <li><strong>Decoder:</strong> Takes the Encoder output and autoregressively generates
+                                    the final output sequence, one token at a time. It uses Masked Self-Attention to
+                                    prevent looking at future tokens during training.</li>
+                                <li><strong>Applications:</strong> Used primarily for sequence-to-sequence tasks like
+                                    Machine Translation (e.g., translating English to French).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            BERT (Encoder Only)
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is BERT?</strong> Bidirectional Encoder Representations from
+                                    Transformers. A model developed by Google.</li>
+                                <li><strong>Architecture:</strong> It utilizes only the Encoder block of the
+                                    Transformer.</li>
+                                <li><strong>Bidirectional:</strong> Unlike previous models, it looks at text from
+                                    left-to-right AND right-to-left simultaneously natively.</li>
+                                <li><strong>Use Cases:</strong> Perfect for understanding language context, such as text
+                                    classification, sentiment analysis, and answering questions extracted from text.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            GPT (Decoder Only)
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is GPT?</strong> Generative Pre-trained Transformer. A series of models
+                                    developed by OpenAI.</li>
+                                <li><strong>Architecture:</strong> It utilizes only the Decoder block of the
+                                    Transformer.</li>
+                                <li><strong>Autoregressive:</strong> It predicts the next token in a sequence based only
+                                    on the previous tokens (left-to-right).</li>
+                                <li><strong>Use Cases:</strong> Incredible at generating coherent, contextual text.
+                                    Powers conversational AI like ChatGPT.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Interview Questions
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Why are Transformers faster to train than RNNs?</strong> Transformers
+                                    process sequences entirely in parallel, whereas RNNs process words sequentially
+                                    step-by-step.</li>
+                                <li><strong>What is Positional Encoding?</strong> Since Transformers have no recurrence
+                                    and process words in parallel, they need a way to track the order of words.
+                                    Positional embeddings are added to input embeddings to provide sequence context.
+                                </li>
+                                <li><strong>Explain the formula for Scaled Dot-Product Attention?</strong>
+                                    <code>Attention(Q, K, V) = softmax(QK^T / sqrt(d_k))V</code>. Dividing by the square
+                                    root of dimensions prevents gradients from vanishing.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

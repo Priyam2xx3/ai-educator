@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms & Metrics | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html">📍 Roadmap</a>
+                    <a href="ml.html">📘 Machine Learning</a>
+                    <a href="dl.html">📗 Deep Learning</a>
+                    <a href="transformers.html">📕 Transformers</a>
+                    <a href="llm.html">📙 LLMs</a>
+                    <a href="rag.html">📒 RAG</a>
+                    <a href="agents.html">📓 AI Agents</a>
+                    <a href="algorithms.html" class="active">📑 Algorithms</a>
+                    <a href="references.html">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <h1 class="page-header delay-1">Algorithms, Optimizers & Metrics</h1>
+
+                <section class="glass delay-1" style="padding: 2rem; margin-bottom: 2rem;">
+                    <h2>The Math Behind the Magic</h2>
+                    <p>Models learn by minimizing their errors. To do this, they need a way to measure the error (Loss
+                        Function) and a way to update their internal weights to reduce that error (Optimizer). Finally,
+                        we need Metrics to evaluate the true success of the model.</p>
+                </section>
+
+                <div class="accordion delay-2">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Loss Functions
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is it?</strong> A mathematical way of measuring how far off the model's
+                                    predictions are from the true labels. The goal of training is to minimize this
+                                    value.</li>
+                                <li><strong>Mean Squared Error (MSE):</strong> Used for Regression tasks (predicting
+                                    numbers). Measures the average squared difference between estimated values and the
+                                    actual value.</li>
+                                <li><strong>Cross-Entropy Loss:</strong> Used for Classification tasks (predicting
+                                    categories). It heavily penalizes confident but incorrect predictions using
+                                    logarithmic formulas.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Optimizers
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Gradient Descent:</strong> The foundational optimization algorithm. It
+                                    calculates the gradient (slope) of the loss function with respect to the weights,
+                                    and takes a "step" downwards against the gradient.</li>
+                                <li><strong>Stochastic Gradient Descent (SGD):</strong> Instead of calculating the
+                                    gradient over the entire dataset (which is slow), it calculates it over small random
+                                    batches. Fast, but the path to the minimum is noisy.</li>
+                                <li><strong>Adam (Adaptive Moment Estimation):</strong> The most popular optimizer
+                                    today. It combining the advantages of AdaGrad and RMSProp by computing individual
+                                    adaptive learning rates for different parameters from estimates of first and second
+                                    moments of the gradients.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Evaluation Metrics
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Accuracy:</strong> Total correct predictions divided by total predictions.
+                                    Only useful when classes are perfectly balanced.</li>
+                                <li><strong>Precision:</strong> "Out of all the emails the model flagged as SPAM, how
+                                    many were actually SPAM?" True Positives / (True Positives + False Positives).
+                                    Crucial when False Positives are costly.</li>
+                                <li><strong>Recall (Sensitivity):</strong> "Out of all the actual SPAM emails, how many
+                                    did the model successfully find?" True Positives / (True Positives + False
+                                    Negatives). Crucial for medical tests where False Negatives can be fatal.</li>
+                                <li><strong>F1-Score:</strong> The harmonic mean of Precision and Recall. best metric if
+                                    there is an uneven class distribution.</li>
+                            </ul>
+                            <div
+                                style="background: var(--card-border); padding: 2rem; margin: 1.5rem 0; border-radius: 0.5rem; color: var(--text-muted); font-family: monospace;">
+                                Predicted Positive | Predicted Negative<br>
+                                Actual Positive: True Positive! | False Negative (Type II)<br>
+                                Actual Negative: False Positive | True Negative!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Interview Questions
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Why is Cross-Entropy used for Classification instead of MSE?</strong> MSE
+                                    expects continuous values. In classification, outputs are raw probabilities (e.g.,
+                                    [0.9, 0.1]). Cross-Entropy directly penalizes the probability of the wrong class
+                                    logarithmically, creating steeper, faster gradients for the network to train on.
+                                </li>
+                                <li><strong>What is the Learning Rate?</strong> The size of the "steps" the optimizer
+                                    takes downwards towards the minimum loss. Too big, and it jumps over the minimum;
+                                    too small, and it takes forever to train.</li>
+                                <li><strong>Why does Adam sometimes fail to generalize compared to SGD?</strong> Adam
+                                    adapts its learning rates aggressively, which can cause it to converge quickly to
+                                    sharp, narrow local minima in the loss landscape, whereas SGD's noise often pushes
+                                    it towards broader, more generalized minima.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

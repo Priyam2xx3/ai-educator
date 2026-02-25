@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieval-Augmented Generation (RAG) | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html">📍 Roadmap</a>
+                    <a href="ml.html">📘 Machine Learning</a>
+                    <a href="dl.html">📗 Deep Learning</a>
+                    <a href="transformers.html">📕 Transformers</a>
+                    <a href="llm.html">📙 LLMs</a>
+                    <a href="rag.html" class="active">📒 RAG</a>
+                    <a href="agents.html">📓 AI Agents</a>
+                    <a href="algorithms.html">📑 Algorithms</a>
+                    <a href="references.html">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <h1 class="page-header delay-1">Retrieval-Augmented Generation</h1>
+
+                <section class="glass delay-1" style="padding: 2rem; margin-bottom: 2rem;">
+                    <h2>What is RAG?</h2>
+                    <p>RAG is an AI framework that improves the quality of LLM-generated responses by grounding the
+                        model on external sources of knowledge. Instead of hallucinating answers based solely on its
+                        training data, the LLM first retrieves relevant documents and uses them to formulate an accurate
+                        answer.</p>
+                </section>
+
+                <div class="accordion delay-2">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            RAG Architecture Pipeline
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content" style="text-align: center;">
+                            <p style="margin-top: 1rem; text-align: left;">The pipeline involves three main components:
+                                Ingestion, Retrieval, and Generation.</p>
+
+                            <!-- Placeholder for Architecture Diagram -->
+                            <div
+                                style="background: var(--card-border); padding: 3rem; margin: 1.5rem 0; border-radius: 0.5rem; border: 2px dashed var(--primary); color: var(--text-muted); font-weight: bold; font-family: monospace;">
+                                [ DIAGRAM: Document -> Chunks -> Embedding Model -> Vector DB ]<br>
+                                [ DIAGRAM: User Query -> Embedding Model -> Similarity Search -> Top-K Context -> LLM
+                                Prompt -> Answer ]
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Embeddings
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What they are:</strong> A mathematical representation of text, images, or
+                                    audio in high-dimensional space. Words or sentences with similar meanings will have
+                                    vectors that are closer together.</li>
+                                <li><strong>Chunking:</strong> Large documents (like a PDF) are too big to embed whole.
+                                    They are split into smaller chunks (e.g., 500 tokens) using naive splitting or
+                                    semantic chunking.</li>
+                                <li><strong>Models:</strong> OpenAI's text-embedding-ada-002, BAAI's bge-large-en,
+                                    Cohere's embed-english-v3.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Vector Databases
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What they do:</strong> Store the high-dimensional vectors (Embeddings)
+                                    alongside their original text chunks to allow for lightning-fast similarity searches
+                                    (Nearest Neighbor search).</li>
+                                <li><strong>Algorithms:</strong> Approximate Nearest Neighbors (ANN), HNSW (Hierarchical
+                                    Navigable Small World).</li>
+                                <li><strong>Examples:</strong> Pinecone, Milvus, Qdrant, ChromaDB, Weaviate, pgvector
+                                    (PostgreSQL).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Advanced Retrieval Techniques
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Hybrid Search:</strong> Combining Vector Search (semantic meaning) with
+                                    Keyword Search (BM25 sparse vectors) for highly accurate retrieval of specific names
+                                    alongside concepts.</li>
+                                <li><strong>Re-ranking:</strong> Retrieving Top-50 documents quickly with vector search,
+                                    then using a Cross-Encoder model (like Cohere Rerank) to perfectly sort the Top-5
+                                    based on relevance to the query.</li>
+                                <li><strong>Query Expansion:</strong> Using an LLM to rewrite the user's short query
+                                    into multiple possible queries or hypothetical document answers to improve recall.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Interview Questions
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>How does RAG compare to Fine-Tuning?</strong> Fine-tuning teaches the model
+                                    a new "style" or tone, but is terrible at implanting new "facts". RAG is excellent
+                                    at dynamically updating knowledge (you just update the database) without expensive
+                                    retraining.</li>
+                                <li><strong>What is the "Context Window" limit?</strong> LLMs can only read so much text
+                                    at once (e.g., 8k to 128k tokens). RAG ensures you only feed the model the most
+                                    vital paragraphs, keeping generation fast and costs low while bypassing the limit.
+                                </li>
+                                <li><strong>What is Cosine Similarity?</strong> The mathematical metric used to
+                                    determine how similar two vectors are by measuring the angle between them. 1 =
+                                    identical direction, 0 = orthogonal.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html">📍 Roadmap</a>
+                    <a href="ml.html">📘 Machine Learning</a>
+                    <a href="dl.html">📗 Deep Learning</a>
+                    <a href="transformers.html">📕 Transformers</a>
+                    <a href="llm.html">📙 LLMs</a>
+                    <a href="rag.html">📒 RAG</a>
+                    <a href="agents.html">📓 AI Agents</a>
+                    <a href="algorithms.html">📑 Algorithms</a>
+                    <a href="references.html" class="active">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <h1 class="page-header delay-1">References & Resources</h1>
+
+                <p class="text-muted delay-1" style="margin-bottom: 2rem;">A curated list of high-quality external
+                    resources to deepen your understanding of Artificial Intelligence.</p>
+
+                <div class="cards-grid delay-2" style="margin-bottom: 3rem;">
+                    <!-- External Links mapped in Cards for better aesthetics -->
+                    <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener noreferrer"
+                        class="card glass">
+                        <h3>Scikit-Learn Docs</h3>
+                        <p>The best place to learn traditional Machine Learning implementation in Python.</p>
+                    </a>
+
+                    <a href="https://pytorch.org/tutorials/" target="_blank" rel="noopener noreferrer"
+                        class="card glass">
+                        <h3>PyTorch Tutorials</h3>
+                        <p>Official guide to building Neural Networks, from basics to Advanced Deep Learning
+                            architectures.</p>
+                    </a>
+
+                    <a href="https://huggingface.co/learn" target="_blank" rel="noopener noreferrer" class="card glass">
+                        <h3>Hugging Face NLP Course</h3>
+                        <p>The absolute gold standard for learning Transformers, Fine-Tuning, and utilizing the
+                            open-source Hub.</p>
+                    </a>
+
+                    <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer"
+                        class="card glass">
+                        <h3>Attention Is All You Need</h3>
+                        <p>The original 2017 research paper by Google that introduced the Transformer architecture.</p>
+                    </a>
+                </div>
+
+                <div class="accordion delay-3">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Online Courses (MOOCs)
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><a href="https://www.coursera.org/specializations/machine-learning-introduction"
+                                        target="_blank" style="text-decoration: underline;">Stanford Machine Learning
+                                        (Coursera)</a> - Andrew Ng's foundational ML course.</li>
+                                <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank"
+                                        style="text-decoration: underline;">DeepLearning.AI Deep Learning
+                                        Specialization</a> - Comprehensive neural network training.</li>
+                                <li><a href="https://fast.ai" target="_blank"
+                                        style="text-decoration: underline;">Fast.ai: Practical Deep Learning for
+                                        Coders</a> - Top-down approach to deep learning.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            YouTube Channels
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><a href="https://www.youtube.com/@AndrejKarpathy" target="_blank"
+                                        style="text-decoration: underline;">Andrej Karpathy</a> - Former Director of AI
+                                    at Tesla. Famous for "Let's build GPT: from scratch".</li>
+                                <li><a href="https://www.youtube.com/c/3blue1brown" target="_blank"
+                                        style="text-decoration: underline;">3Blue1Brown</a> - The best visual
+                                    explanations of Linear Algebra and Neural Network mathematics.</li>
+                                <li><a href="https://www.youtube.com/c/statquest" target="_blank"
+                                        style="text-decoration: underline;">StatQuest with Josh Starmer</a> - Simplifies
+                                    complex statistical and ML concepts via entertaining songs and visual aids. BAM!
+                                </li>
+                                <li><a href="https://www.youtube.com/@YannicKilcher" target="_blank"
+                                        style="text-decoration: underline;">Yannic Kilcher</a> - Reviews of the latest
+                                    AI research papers and architecture breakdowns.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Practice & Datasets
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><a href="https://www.kaggle.com/" target="_blank"
+                                        style="text-decoration: underline;">Kaggle</a> - Datasets, notebooks, and ML
+                                    competitions. The best place to build a portfolio.</li>
+                                <li><a href="https://paperswithcode.com/" target="_blank"
+                                        style="text-decoration: underline;">Papers with Code</a> - Discover trending ML
+                                    research alongside the actual GitHub repositories to replicate them.</li>
+                                <li><a href="https://huggingface.co/datasets" target="_blank"
+                                        style="text-decoration: underline;">Hugging Face Datasets</a> - Massive
+                                    repository of text, image, and audio datasets primarily for Generative AI
+                                    fine-tuning.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

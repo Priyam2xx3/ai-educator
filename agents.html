@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html">📍 Roadmap</a>
+                    <a href="ml.html">📘 Machine Learning</a>
+                    <a href="dl.html">📗 Deep Learning</a>
+                    <a href="transformers.html">📕 Transformers</a>
+                    <a href="llm.html">📙 LLMs</a>
+                    <a href="rag.html">📒 RAG</a>
+                    <a href="agents.html" class="active">📓 AI Agents</a>
+                    <a href="algorithms.html">📑 Algorithms</a>
+                    <a href="references.html">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <h1 class="page-header delay-1">Autonomous AI Agents</h1>
+
+                <section class="glass delay-1" style="padding: 2rem; margin-bottom: 2rem;">
+                    <h2>What are AI Agents?</h2>
+                    <p>An AI agent is an autonomous system powered by an LLM as its "brain," capable of planning,
+                        holding memory, and invoking external tools to complete complex, multi-step tasks in the real
+                        world.</p>
+                </section>
+
+                <div class="accordion delay-2">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Core Architecture
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Brain (LLM):</strong> The foundational model providing reasoning and logic
+                                    capabilities. It processes the prompt and plans the next moves.</li>
+                                <li><strong>Perception/Input:</strong> How the agent receives data (text instructions,
+                                    vision from screenshots, code logs).</li>
+                                <li><strong>Action/Output:</strong> How the agent interacts with its environment
+                                    (clicking buttons, executing code, pushing to GitHub, calling APIs).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Key Capabilities
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Tools (Function Calling):</strong> An LLM alone only predicts text. Tools
+                                    allow it to interact with the world. Examples: Calculator, Web Search API, Python
+                                    Interpreter, SQL Executor.</li>
+                                <li><strong>Memory:</strong>
+                                    <ul>
+                                        <li><em>Short-term:</em> The current conversation history held within the
+                                            context window.</li>
+                                        <li><em>Long-term:</em> Saving experiences, user preferences, or parsed
+                                            documents in a Vector Database for future retrieval.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Planning (ReAct):</strong> Agents use prompting strategies like ReAct
+                                    (Reasoning and Acting) to break a large goal into smaller steps: Thought → Action →
+                                    Observation → Thought.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Example Use Cases
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong> Devin (Software Engineering Agent):</strong> Give it a GitHub issue; it
+                                    clones the repo, reads the code, sets up an environment, runs tests, writes the
+                                    patch, and submits a PR.</li>
+                                <li><strong> Financial Analyst Agent:</strong> Given a task "Analyze Apple's Q3
+                                    earnings", the agent uses a web search tool to find the PDF report, uses a
+                                    calculator tool to analyze margins, and writes a summary report.</li>
+                                <li><strong> Multi-Agent Systems (e.g., AutoGen, CrewAI):</strong> Multiple agents with
+                                    distinct personas (e.g., Code Writer, QA Tester, Product Manager) chatting and
+                                    collaborating to build an app.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Practice & Frameworks
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>LangChain / LangGraph:</strong> Frameworks for orchestrating complex chains
+                                    and cyclic graphs of agent actions.</li>
+                                <li><strong>LlamaIndex:</strong> Perfect for data-heavy intelligent agents performing
+                                    advanced RAG.</li>
+                                <li><strong>Mini Project:</strong> Build a custom Research Agent in Python using an LLM
+                                    API and the SerpAPI (Google Search) tool. Ask it a question, and watch it search,
+                                    summarize, and cite the results.</li>
+                            </ul>
+                            <pre><code># ReAct Prompt Example Pattern
+Question: "What is the capital of France, and what is the current weather there?"
+Thought 1: I need to find the capital of France.
+Action 1: WebSearch["Capital of France"]
+Observation 1: Paris.
+Thought 2: I need to find the weather in Paris.
+Action 2: WeatherAPI["Paris"]
+Observation 2: 15°C and sunny.
+Thought 3: I have all the information needed.
+Final Answer: The capital of France is Paris, and the current weather is 15°C and sunny.</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Interview Questions
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is the difference between an Agent and standard code
+                                        automation?</strong> A standard script follows a hard-coded path `if X then Y`.
+                                    An Agent determines its own path to reach a goal, handling unexpected errors
+                                    autonomously by trying different tools.</li>
+                                <li><strong>What is infinite loop failure?</strong> When an agent gets stuck repeatedly
+                                    making the same tool call, getting the same error, because the LLM fails to reason
+                                    out a new strategy.</li>
+                                <li><strong>Summarize the ReAct methodology.</strong> It stands for Reason and Act. The
+                                    model is forced to explicitly output its reasoning (Thought) before outputting a
+                                    tool command (Action), vastly improving reliability.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

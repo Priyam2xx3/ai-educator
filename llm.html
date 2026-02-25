@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Large Language Models | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html">📍 Roadmap</a>
+                    <a href="ml.html">📘 Machine Learning</a>
+                    <a href="dl.html">📗 Deep Learning</a>
+                    <a href="transformers.html">📕 Transformers</a>
+                    <a href="llm.html" class="active">📙 LLMs</a>
+                    <a href="rag.html">📒 RAG</a>
+                    <a href="agents.html">📓 AI Agents</a>
+                    <a href="algorithms.html">📑 Algorithms</a>
+                    <a href="references.html">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <h1 class="page-header delay-1">Large Language Models (LLMs)</h1>
+
+                <section class="glass delay-1" style="padding: 2rem; margin-bottom: 2rem;">
+                    <h2>What is an LLM?</h2>
+                    <p>A Large Language Model is a massive neural network (typically a Transformer) trained on vast
+                        amounts of text data. It can understand, generate, translate, and interact using natural
+                        language with human-like proficiency.</p>
+                </section>
+
+                <div class="accordion delay-2">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Tokenization
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Definition:</strong> Models do not read text like humans; they read
+                                    mathematical arrays. Tokenization is the process of breaking raw text down into
+                                    numbers (Tokens).</li>
+                                <li><strong>Sub-word Tokens:</strong> Modern LLMs use strategies like Byte-Pair Encoding
+                                    (BPE). Words are broken down into chunks (e.g., "unhappiness" into "un-", "happi-",
+                                    "-ness").</li>
+                                <li><strong>Vocabulary:</strong> A finite set of known tokens the model relies on to
+                                    understand the universe.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Pre-training vs Fine-Tuning
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Pre-training (The "Foundation"):</strong> Training the model on massive
+                                    internet corpora to simply "predict the next word". It learns grammar, facts,
+                                    reasoning abilities, and biases. This phase costs millions of dollars.</li>
+                                <li><strong>Supervised Fine-Tuning (SFT):</strong> Taking the pre-trained base model and
+                                    training it on high-quality Question & Answer pairs so it behaves like a helpful
+                                    assistant rather than a random text completion generator.</li>
+                                <li><strong>RLHF (Reinforcement Learning from Human Feedback):</strong> A secondary
+                                    fine-tuning step where humans rank the model's outputs, and a reward model is
+                                    trained to teach the LLM to output safe and helpful responses.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Prompt Engineering
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is it?</strong> Crafting precise input instructions to guide the LLM
+                                    toward producing optimal outputs.</li>
+                                <li><strong>Zero-Shot Prompting:</strong> Asking a task directly without examples (e.g.,
+                                    "Translate 'Hello' to French:").</li>
+                                <li><strong>Few-Shot Prompting:</strong> Giving a few examples before the task to show
+                                    the model the desired pattern or format.</li>
+                                <li><strong>Chain of Thought (CoT):</strong> Asking the model to "think step by step" to
+                                    improve its reasoning capabilities on complex math or logic puzzles.</li>
+                            </ul>
+                            <pre><code># Chain of Thought Example Prompt
+User: "If John had 5 apples and gave 2 to Mary, but bought 6 more, how many does he have?"
+System: "Think step-by-step to arrive at the solution."
+Assistant: "1. Start with 5 apples. \n2. Give 2 to Mary (5 - 2 = 3). \n3. Buy 6 more (3 + 6 = 9). \nAnswer: 9 apples."</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Open-Source LLMs & Comparison
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p style="margin-top: 1rem; margin-bottom: 1rem; color: var(--text-muted);">The landscape of
+                                LLMs is divided into Proprietary (closed) and Open-Weights (accessible) models.</p>
+                            <ul>
+                                <li><strong>Proprietary:</strong> OpenAI's GPT-4, Anthropic's Claude 3, Google's Gemini.
+                                    Best performance natively, but strictly API gated.</li>
+                                <li><strong>Meta Llama 3:</strong> The king of open-weights models. State-of-the-art
+                                    performance for its sizes (8B, 70B parameters) and runs locally on consumer
+                                    hardware.</li>
+                                <li><strong>Mistral / Mixtral:</strong> Created by Mistral AI, introduced Mixture of
+                                    Experts (MoE) to open-source to deliver incredible speed and reasoning.</li>
+                                <li><strong>Qwen:</strong> From Alibaba, exceptional at coding and multilingual logic
+                                    tasks.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Interview Questions
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is Hallucination in LLMs?</strong> When a model confidently generates
+                                    plausible but factually incorrect or nonsensical information because it is
+                                    predicting the next statistically likely token.</li>
+                                <li><strong>How does LoRA (Low-Rank Adaptation) work?</strong> A parameter-efficient
+                                    fine-tuning technique that injects trainable low-rank matrices into Transformer
+                                    layers while freezing the massive base model weights, allowing fine-tuning on a
+                                    single consumer GPU.</li>
+                                <li><strong>What is temperature in text generation?</strong> A parameter that scales the
+                                    logits before the softmax layer. High temperature (e.g., 0.9) increases
+                                    randomness/creativity, while low temperature (e.g., 0.1) makes outputs
+                                    deterministic.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

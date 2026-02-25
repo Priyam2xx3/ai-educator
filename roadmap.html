@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Roadmap | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html" class="active">📍 Roadmap</a>
+                    <a href="ml.html">📘 Machine Learning</a>
+                    <a href="dl.html">📗 Deep Learning</a>
+                    <a href="transformers.html">📕 Transformers</a>
+                    <a href="llm.html">📙 LLMs</a>
+                    <a href="rag.html">📒 RAG</a>
+                    <a href="agents.html">📓 AI Agents</a>
+                    <a href="algorithms.html">📑 Algorithms</a>
+                    <a href="references.html">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <section class="delay-1">
+                    <h1 class="page-header">Step-by-Step AI Roadmap</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">
+                        A comprehensive, beginner-friendly guide mapping out your journey from absolute basics to state-of-the-art Generative AI. Follow these steps sequentially to build a rock-solid foundation.
+                    </p>
+
+                    <div class="timeline">
+                        <!-- Step 1 -->
+                        <div class="timeline-item delay-1">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content glass">
+                                <h2>Step 1: Foundations</h2>
+                                <p style="margin-bottom: 1rem; color: var(--text-muted);">Before jumping into AI models, you must understand the language of data and algorithms.</p>
+                                <ul>
+                                    <li><strong>Mathematics:</strong> Linear Algebra (Vectors, Matrices), Probability, Calculus (Derivatives), Statistics.</li>
+                                    <li><strong>Python Basics:</strong> Functions, Loops, List Comprehension, OOP concepts.</li>
+                                    <li><strong>Data Structures:</strong> Arrays, Hash Maps, Trees, Graphs.</li>
+                                    <li><strong>Libraries:</strong> NumPy, Pandas, Matplotlib, Seaborn.</li>
+                                </ul>
+                                <a href="algorithms.html" class="btn btn-outline" style="margin-top: 1rem; font-size: 0.85rem;">Learn Mathematical Optimizers</a>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="timeline-item delay-2">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content glass">
+                                <h2>Step 2: Machine Learning</h2>
+                                <p style="margin-bottom: 1rem; color: var(--text-muted);">Learn how algorithms learn from data without being explicitly programmed.</p>
+                                <ul>
+                                    <li><strong>Supervised Learning:</strong> Linear/Logistic Regression, Decision Trees, SVM.</li>
+                                    <li><strong>Unsupervised Learning:</strong> K-Means Clustering, PCA.</li>
+                                    <li><strong>Model Evaluation:</strong> Cross-validation, Confusion Matrix, Precision vs Recall.</li>
+                                    <li><strong>Feature Engineering:</strong> Handling missing data, encoding, scaling.</li>
+                                </ul>
+                                <a href="ml.html" class="btn btn-outline" style="margin-top: 1rem; font-size: 0.85rem;">Go to Machine Learning</a>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="timeline-item delay-3">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content glass">
+                                <h2>Step 3: Deep Learning</h2>
+                                <p style="margin-bottom: 1rem; color: var(--text-muted);">Enter the world of neural networks inspired by the human brain.</p>
+                                <ul>
+                                    <li><strong>Neural Networks:</strong> Perceptrons, Multi-Layer Perceptrons (MLP), Activation Functions.</li>
+                                    <li><strong>Computer Vision (CNNs):</strong> Image Classification, Object Detection.</li>
+                                    <li><strong>Sequential Data (RNNs):</strong> LSTMs, GRUs, Time-series analysis.</li>
+                                    <li><strong>Frameworks:</strong> PyTorch (recommended) or TensorFlow/Keras.</li>
+                                </ul>
+                                <a href="dl.html" class="btn btn-outline" style="margin-top: 1rem; font-size: 0.85rem;">Go to Deep Learning</a>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="timeline-item delay-3">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content glass">
+                                <h2>Step 4: LLMs & Generative AI</h2>
+                                <p style="margin-bottom: 1rem; color: var(--text-muted);">Master the cutting-edge technologies powering ChatGPT and modern AI pipelines.</p>
+                                <ul>
+                                    <li><strong>Transformers Architecture:</strong> Attention Mechanism, Encoder-Decoder.</li>
+                                    <li><strong>Large Language Models:</strong> Pretraining, Tokenization.</li>
+                                    <li><strong>Fine-tuning & Alignment:</strong> LoRA, QLoRA, RLHF.</li>
+                                    <li><strong>Applied AI:</strong> Prompt Engineering, RAG (Retrieval-Augmented Generation), AI Agents.</li>
+                                </ul>
+                                <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:1rem;">
+                                    <a href="transformers.html" class="btn btn-outline" style="font-size: 0.85rem;">Transformers</a>
+                                    <a href="llm.html" class="btn btn-outline" style="font-size: 0.85rem;">LLMs</a>
+                                    <a href="rag.html" class="btn btn-outline" style="font-size: 0.85rem;">RAG</a>
+                                    <a href="agents.html" class="btn btn-outline" style="font-size: 0.85rem;">AI Agents</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="timeline-item delay-3">
+                            <div class="timeline-dot" style="background: var(--accent);"></div>
+                            <div class="timeline-content glass" style="border-left: 4px solid var(--accent);">
+                                <h2>Step 5: Interview Preparation</h2>
+                                <p style="margin-bottom: 1rem; color: var(--text-muted);">Polish your skills for the industry.</p>
+                                <ul>
+                                    <li><strong>ML Interview Questions:</strong> Overfitting, Bias-Variance Tradeoff, Regularization.</li>
+                                    <li><strong>Project Discussions:</strong> Be able to explain inputs, outputs, bottlenecks, and metrics of your projects.</li>
+                                    <li><strong>System Design:</strong> MLOps, Deploying models, Scalability.</li>
+                                    <li><strong>Real-world Problem Solving:</strong> Case studies (e.g., Designing a recommendation engine).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

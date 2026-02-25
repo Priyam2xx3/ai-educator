@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html">📍 Roadmap</a>
+                    <a href="ml.html" class="active">📘 Machine Learning</a>
+                    <a href="dl.html">📗 Deep Learning</a>
+                    <a href="transformers.html">📕 Transformers</a>
+                    <a href="llm.html">📙 LLMs</a>
+                    <a href="rag.html">📒 RAG</a>
+                    <a href="agents.html">📓 AI Agents</a>
+                    <a href="algorithms.html">📑 Algorithms</a>
+                    <a href="references.html">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <h1 class="page-header delay-1">Machine Learning Concepts</h1>
+
+                <section class="glass delay-1" style="padding: 2rem; margin-bottom: 2rem;">
+                    <h2>What is Machine Learning?</h2>
+                    <p>Machine Learning is a subset of AI that focuses on building systems that learn—or improve
+                        performance—based on the data they consume, without being explicitly programmed.</p>
+                </section>
+
+                <div class="accordion delay-2">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Types of Machine Learning
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Supervised Learning:</strong> Learning with labeled data. The model is
+                                    trained on input variables mapped to explicit output labels. Examples: Regression
+                                    and Classification.</li>
+                                <li><strong>Unsupervised Learning:</strong> Learning without labeled data. The goal is
+                                    to discover underlying patterns or clusters in the data. Examples: Clustering and
+                                    Dimensionality Reduction.</li>
+                                <li><strong>Reinforcement Learning:</strong> Learning by trial and error. An agent
+                                    interacts with an environment, getting rewards or penalties for its actions to
+                                    maximize total reward (e.g., self-driving cars, Game AI).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Common Algorithms
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Linear Regression:</strong> Predicts a continuous output variable based on
+                                    one or more input variables.</li>
+                                <li><strong>Logistic Regression:</strong> Predicts a binary outcome (1/0, Yes/No,
+                                    True/False) representing the probability of an event.</li>
+                                <li><strong>Decision Trees:</strong> Model decisions in a tree-like structure; handles
+                                    both regression and classification.</li>
+                                <li><strong>Random Forest:</strong> An ensemble model grouping multiple decision trees
+                                    to improve accuracy and prevent overfitting.</li>
+                                <li><strong>SVM (Support Vector Machines):</strong> Finds a hyperplane that best
+                                    separates different classes in the feature space.</li>
+                                <li><strong>KNN (K-Nearest Neighbors):</strong> Classifies a data point based on how its
+                                    neighbors are classified.</li>
+                                <li><strong>Naive Bayes:</strong> A probabilistic classifier based on applying Bayes'
+                                    theorem with the "naive" assumption of conditional independence between every pair
+                                    of features.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Practice Section
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Iris Dataset Classification:</strong> <span class="text-muted">A classic
+                                        benchmark to classify iris plant species based on sepal and petal parameters
+                                        using KNN or Logistic Regression.</span></li>
+                                <li><strong>House Price Prediction:</strong> <span class="text-muted">Use Linear
+                                        regression to predict the Boston or California house prices based on features
+                                        like rooms, location, and age.</span></li>
+                                <li><strong>Spam Email Detection:</strong> <span class="text-muted">Apply Natural
+                                        Language Processing (TF-IDF) and Naive Bayes to classify an email as Spam or Not
+                                        Spam.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Mini Projects
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Student Grade Predictor:</strong> <span class="text-muted">Build a
+                                        regression model to estimate final student grades based on study hours,
+                                        attendance, and past performance.</span></li>
+                                <li><strong>Customer Churn Model:</strong> <span class="text-muted">Develop a
+                                        classification pipeline tracking customer metadata to predict whether a customer
+                                        will cancel their subscription.</span></li>
+                            </ul>
+                            <pre><code># Sample Python Snippet
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train, y_train)
+print("Accuracy:", model.score(X_test, y_test))</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Interview Questions
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is the bias-variance tradeoff?</strong> Explain how high bias leads to
+                                    underfitting and high variance leads to overfitting.</li>
+                                <li><strong>How do you handle imbalanced datasets?</strong> SMOTE, undersampling,
+                                    oversampling, and using different metrics like F1-Score instead of accuracy.</li>
+                                <li><strong>What is Cross-Validation?</strong> Explain k-fold cross-validation and why
+                                    it's better than a single train-test split.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <section class="delay-3">
+                    <h2>References & Resources</h2>
+                    <div class="cards-grid">
+                        <a href="https://scikit-learn.org/" target="_blank" rel="noopener noreferrer"
+                            class="card glass">
+                            <h3>Scikit-learn Documentation</h3>
+                            <p>The industry standard library for ML in Python. Excellent tutorials and API references.
+                            </p>
+                        </a>
+                        <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank"
+                            rel="noopener noreferrer" class="card glass">
+                            <h3>Coursera ML Specialization</h3>
+                            <p>Andrew Ng's highly acclaimed Machine Learning series.</p>
+                        </a>
+                        <a href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer" class="card glass">
+                            <h3>Kaggle</h3>
+                            <p>Datasets, notebooks, and competitions to hone your skills.</p>
+                        </a>
+                        <a href="https://developers.google.com/machine-learning/crash-course" target="_blank"
+                            rel="noopener noreferrer" class="card glass">
+                            <h3>Google ML Crash Course</h3>
+                            <p>A fast-paced, practical introduction to machine learning by Google engineers.</p>
+                        </a>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

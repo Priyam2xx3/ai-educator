@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning | AI Educator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">✦ AI<span>Educator</span></div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="roadmap.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">Roadmap</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="main-content-layout">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="nav-links">
+                    <a href="index.html">🏠 Home</a>
+                    <a href="roadmap.html">📍 Roadmap</a>
+                    <a href="ml.html">📘 Machine Learning</a>
+                    <a href="dl.html" class="active">📗 Deep Learning</a>
+                    <a href="transformers.html">📕 Transformers</a>
+                    <a href="llm.html">📙 LLMs</a>
+                    <a href="rag.html">📒 RAG</a>
+                    <a href="agents.html">📓 AI Agents</a>
+                    <a href="algorithms.html">📑 Algorithms</a>
+                    <a href="references.html">📎 References</a>
+                </div>
+            </aside>
+
+            <!-- Page Content -->
+            <main class="content-area">
+                <h1 class="page-header delay-1">Deep Learning Concepts</h1>
+
+                <section class="glass delay-1" style="padding: 2rem; margin-bottom: 2rem;">
+                    <h2>What is Deep Learning?</h2>
+                    <p>Deep Learning is a specialized sub-field of Machine Learning based on Artificial Neural Networks
+                        with multiple layers (hence "deep"). It excels at finding complex patterns in unstructured data
+                        like images, text, and audio.</p>
+                </section>
+
+                <div class="accordion delay-2">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Core Fundamentals
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Neural Networks:</strong> Computing systems inspired by the biological
+                                    neural networks of animal brains. Made up of layers of "neurons" (nodes).</li>
+                                <li><strong>Activation Functions:</strong> Mathematical equations that determine the
+                                    output of a neural network node (e.g., ReLU, Sigmoid, Tanh). They introduce
+                                    non-linearity.</li>
+                                <li><strong>Backpropagation:</strong> The core algorithm behind how neural networks
+                                    learn. It calculates the gradient of the loss function to adjust weights and biases
+                                    across all internal layers.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Architectures (Subpages inside the topic)
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>ANN (Artificial Neural Networks):</strong> The standard multi-layer
+                                    perceptron. Good for tabular data and general non-linear mapping.</li>
+                                <li><strong>CNN (Convolutional Neural Networks):</strong> Specialized for grid-like data
+                                    like Images. Uses Convolutional layers and pooling to automatically extract spatial
+                                    features.</li>
+                                <li><strong>RNN (Recurrent Neural Networks):</strong> Designed for sequential data
+                                    (Text, Time-series). Includes loops to allow information to persist. Variants
+                                    include LSTMs and GRUs.</li>
+                                <li><strong>GNN (Graph Neural Networks):</strong> Operates on graph structures, useful
+                                    for social networks, molecular structures, and recommendation systems.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Practice Section
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Image Classification:</strong> <span class="text-muted">Use a basic CNN to
+                                        classify objects in the CIFAR-10 dataset into 10 distinct classes.</span></li>
+                                <li><strong>MNIST Digit Recognition:</strong> <span class="text-muted">The "Hello World"
+                                        of Deep Learning. Classify handwritten digits (0-9) using a dense neural
+                                        network.</span></li>
+                                <li><strong>Cat vs Dog Classifier:</strong> <span class="text-muted">Build a CNN and use
+                                        data augmentation techniques to distinguish between cats and dogs.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Mini Projects
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Face Mask Detection:</strong> <span class="text-muted">Train an object
+                                        detection CNN, or fine-tune an existing model like MobileNet, to detect if
+                                        people in a frame are wearing masks.</span></li>
+                                <li><strong>Emotion Detection:</strong> <span class="text-muted">Analyze facial
+                                        expressions in images to classify emotions (happy, sad, angry, surprised) using
+                                        deep learning.</span></li>
+                                <li><strong>Object Detection:</strong> <span class="text-muted">Implement a YOLO (You
+                                        Only Look Once) architecture variant to identify and draw bounding boxes around
+                                        objects in real-time video.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            Interview Questions
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>What is the Vanishing Gradient Problem?</strong> Explain how gradients
+                                    shrink as they backpropagate, halting learning in early layers, and how ReLU or
+                                    LSTMs mitigate it.</li>
+                                <li><strong>What is the difference between Epoch, Batch, and Iteration?</strong> Clarify
+                                    how data is fed into a network during training.</li>
+                                <li><strong>Why use Dropout?</strong> Explain acts as regularization by randomly turning
+                                    off neurons during training to prevent overfitting.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <button id="backToTop" title="Go to top">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
