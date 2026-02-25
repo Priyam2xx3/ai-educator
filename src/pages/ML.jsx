@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import StrictQuiz from '../components/StrictQuiz';
+import InterviewQA from '../components/InterviewQA';
+import { mlQuestions } from '../data/qa_basics';
 
 const MachineLearning = () => {
     const quizQuestions = [
@@ -88,6 +90,30 @@ const MachineLearning = () => {
                     Because they are all looking at different fragments of the puzzle, they all make slightly different mistakes. But when you average their predictions together (an "Ensemble"), their individual mathematical errors cancel each other out, leaving behind a highly accurate, incredibly robust prediction that perfectly balances the Bias-Variance tradeoff.
                 </p>
             </motion.section>
+
+            <motion.section
+                className="glass-panel"
+                style={{ padding: '2rem', marginBottom: '2rem' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+            >
+                <h2>Types of ML Algorithms</h2>
+                <ul style={{ marginTop: '1rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Supervised Learning:</strong> Trained on labeled data (e.g., predicting house prices). Examples: Linear/Logistic Regression, Random Forest, SVM.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Unsupervised Learning:</strong> Finds hidden patterns in unlabeled data. Examples: K-Means Clustering, PCA.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Reinforcement Learning:</strong> Learning by trial and error using a reward system. Example: Q-Learning.</li>
+                </ul>
+            </motion.section>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                style={{ width: '100%', maxWidth: '900px', margin: '0 auto 2rem auto' }}
+            >
+                <InterviewQA questions={mlQuestions} />
+            </motion.div>
 
             <motion.div
                 initial={{ opacity: 0 }}

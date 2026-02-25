@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import StrictQuiz from '../components/StrictQuiz';
+import InterviewQA from '../components/InterviewQA';
+import { ragQuestions } from '../data/qa_advanced';
 
 const RAG = () => {
     const quizQuestions = [
@@ -93,6 +95,30 @@ const RAG = () => {
                     When the user asks a question, we convert their question into a Vector (its coordinates on the map). The database then simply looks at its map and returns all the documents physically sitting closest to the question's coordinates. This is called calculating the <strong>Cosine Similarity</strong>.
                 </p>
             </motion.section>
+
+            <motion.section
+                className="glass-panel"
+                style={{ padding: '2rem', marginBottom: '2rem' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+            >
+                <h2>Types of Advanced Retrieval Methods</h2>
+                <ul style={{ marginTop: '1rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Standard Vector Search:</strong> Finds text based purely on embedding similarity (Cosine Distance). Great for overarching concepts ("How do I fix a broken car?").</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Hybrid Search:</strong> Combines Vector Search with traditional Keyword Search (BM25). Fills the gap when searching for highly specific serial numbers or acronyms where semantic meaning fails.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Re-ranking:</strong> A two-step pipeline. First, grab the top 50 fastest results using basic Vector Search. Then, use a heavy, highly accurate Cross-Encoder neural network to perfectly sort those 50 items down to the absolute best 5 before passing them to the LLM.</li>
+                </ul>
+            </motion.section>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                style={{ width: '100%', maxWidth: '900px', margin: '0 auto 2rem auto' }}
+            >
+                <InterviewQA questions={ragQuestions} />
+            </motion.div>
 
             <motion.div
                 initial={{ opacity: 0 }}

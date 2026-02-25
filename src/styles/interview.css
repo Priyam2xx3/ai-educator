@@ -1,0 +1,77 @@
+/* Interview QA specific styles */
+.interview-qa-container {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.qa-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.qa-item {
+    overflow: hidden;
+    padding: 0;
+    transition: border-color 0.3s ease;
+}
+
+.qa-item:hover {
+    border-color: var(--primary);
+}
+
+.qa-question-btn {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.qa-q-text strong {
+    color: var(--primary);
+}
+
+.qa-icon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.qa-item:hover .qa-icon {
+    color: var(--primary);
+}
+
+.qa-answer-container {
+    overflow: hidden;
+}
+
+.qa-answer-text {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+    line-height: 1.6;
+}
+
+.qa-answer-text strong {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.qa-answer-text code {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+    font-size: 0.9em;
+}

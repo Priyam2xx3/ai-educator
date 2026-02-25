@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import StrictQuiz from '../components/StrictQuiz';
+import InterviewQA from '../components/InterviewQA';
+import { transformerQuestions } from '../data/qa_transformers_llms';
 
 const Transformers = () => {
     const quizQuestions = [
@@ -92,6 +94,30 @@ const Transformers = () => {
                     The Transformer mathematically multiplies the Query of the word "bank" with the Keys of all other words. If it sees the word "river" nearby, the "water" Key perfectly aligns with the "geography" Query, resulting in a high Attention Score. If it sees "money", a different Key aligns. This completely solves contextual ambiguity in language.
                 </p>
             </motion.section>
+
+            <motion.section
+                className="glass-panel"
+                style={{ padding: '2rem', marginBottom: '2rem' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+            >
+                <h2>Types of Transformer Architectures</h2>
+                <ul style={{ marginTop: '1rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Encoder-Only (e.g., BERT):</strong> Reads the entire sentence linearly to understand deep, bidirectional context. Used primarily for text classification and sentiment analysis.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Decoder-Only (e.g., GPT-4, Llama 3):</strong> "Autoregressive" models that predict the next token based entirely on the previous tokens. The absolute standard for generative text and modern chatbots.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Encoder-Decoder (e.g., T5, BART):</strong> The original format from the 2017 paper. The Encoder reads the input sentence (Context), and the Decoder uses that context to generate a new output sentence. Standard for machine translation.</li>
+                </ul>
+            </motion.section>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                style={{ width: '100%', maxWidth: '900px', margin: '0 auto 2rem auto' }}
+            >
+                <InterviewQA questions={transformerQuestions} />
+            </motion.div>
 
             <motion.div
                 initial={{ opacity: 0 }}

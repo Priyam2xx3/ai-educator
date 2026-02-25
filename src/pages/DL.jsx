@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import StrictQuiz from '../components/StrictQuiz';
+import InterviewQA from '../components/InterviewQA';
+import { dlQuestions } from '../data/qa_basics';
 
 const DeepLearning = () => {
     const quizQuestions = [
@@ -93,6 +95,31 @@ const DeepLearning = () => {
                     Multiply 0.1 * 0.1 * 0.1 * 0.1. Very quickly, the gradient shrinks exponentially until it hits absolute zero before reaching the early layers. The early layers are "starved" of gradient information and simply stop updating their weights. The network is essentially paralyzed, unable to learn basic features. This was solved in 2012 by the breakthrough activation function <strong>ReLU (Rectified Linear Unit)</strong>, which stops the gradient from shrinking during derivation.
                 </p>
             </motion.section>
+
+            <motion.section
+                className="glass-panel"
+                style={{ padding: '2rem', marginBottom: '2rem' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+            >
+                <h2>Types of Deep Learning Architectures</h2>
+                <ul style={{ marginTop: '1rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Multilayer Perceptrons (MLPs):</strong> Classic feedforward networks where every node connects to every node in the next layer. Good for tabular data.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Convolutional Neural Networks (CNNs):</strong> Uses spatial filters to slide over data. The absolute standard for Computer Vision and Image Recognition.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Recurrent Neural Networks (RNNs):</strong> Contains internal memory loops. Traditionally used for sequential data like time-series formatting or early NLP (before Transformers).</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Generative Adversarial Networks (GANs):</strong> Pits a Generator against a Discriminator to create incredibly realistic synthetic data (like deepfake images).</li>
+                </ul>
+            </motion.section>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                style={{ width: '100%', maxWidth: '900px', margin: '0 auto 2rem auto' }}
+            >
+                <InterviewQA questions={dlQuestions} />
+            </motion.div>
 
             <motion.div
                 initial={{ opacity: 0 }}

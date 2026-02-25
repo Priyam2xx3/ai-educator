@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import StrictQuiz from '../components/StrictQuiz';
+import InterviewQA from '../components/InterviewQA';
+import { llmQuestions } from '../data/qa_transformers_llms';
 
 const LLMs = () => {
     const quizQuestions = [
@@ -95,6 +97,30 @@ const LLMs = () => {
                     </li>
                 </ul>
             </motion.section>
+
+            <motion.section
+                className="glass-panel"
+                style={{ padding: '2rem', marginBottom: '2rem' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+            >
+                <h2>Types of LLM Formats</h2>
+                <ul style={{ marginTop: '1rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Base / Foundation Models:</strong> Trained purely to predict the next token on vast amounts of internet data. They do not naturally converse (e.g., Llama 3 Base).</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Instruct / Chat Models:</strong> A Base model that has been fine-tuned (SFT + RLHF) to understand instructions and reply politely as an assistant (e.g., ChatGPT, Llama 3 Instruct).</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>MoE (Mixture of Experts):</strong> Instead of one massive 8x7B neural network, the model is composed of eight distinct 7B "Expert" networks. A router sends the prompt to only the 2 most relevant experts, drastically reducing compute costs during generation (e.g., Mistral Mixtral).</li>
+                </ul>
+            </motion.section>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                style={{ width: '100%', maxWidth: '900px', margin: '0 auto 2rem auto' }}
+            >
+                <InterviewQA questions={llmQuestions} />
+            </motion.div>
 
             <motion.div
                 initial={{ opacity: 0 }}

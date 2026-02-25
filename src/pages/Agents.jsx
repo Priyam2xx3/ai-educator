@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import StrictQuiz from '../components/StrictQuiz';
+import InterviewQA from '../components/InterviewQA';
+import { agentsQuestions } from '../data/qa_advanced';
 
 const Agents = () => {
     const quizQuestions = [
@@ -101,6 +103,30 @@ const Agents = () => {
                     This loop continues autonomously—sometimes running for hundreds of steps—until the LLM arrives at the final answer. Frameworks like LangChain, LlamaIndex, and AutoGen manage this complex orchestration.
                 </p>
             </motion.section>
+
+            <motion.section
+                className="glass-panel"
+                style={{ padding: '2rem', marginBottom: '2rem' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+            >
+                <h2>Types of Agent Architectures</h2>
+                <ul style={{ marginTop: '1rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Single ReAct Agent:</strong> One LLM acting autonomously with a suite of tools, suitable for straightforward data gathering or calculation requests.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Multi-Agent Systems (e.g., AutoGen, CrewAI):</strong> Multiple distinct agents with different "Personas" that talk to each other. For example: A "Coder Agent" writes a script, passes it to a "QA Agent" who runs tests, who then forces the Coder to fix any bugs found before giving the result to the user.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Hierarchical/Supervisor Agents:</strong> A primary manager agent delegates tasks to specialized worker agents, maintaining the overarching direction of a massive multi-step project without running out of context memory.</li>
+                </ul>
+            </motion.section>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                style={{ width: '100%', maxWidth: '900px', margin: '0 auto 2rem auto' }}
+            >
+                <InterviewQA questions={agentsQuestions} />
+            </motion.div>
 
             <motion.div
                 initial={{ opacity: 0 }}

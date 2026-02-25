@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import StrictQuiz from '../components/StrictQuiz';
+import InterviewQA from '../components/InterviewQA';
+import { algorithmsQuestions } from '../data/qa_advanced';
 
 const Algorithms = () => {
     const quizQuestions = [
@@ -90,6 +92,30 @@ const Algorithms = () => {
                     <strong>A* Star Search</strong> is the breakthrough. It combines the guaranteed shortest path of Dijkstra with a <strong>Heuristic</strong> (a smart guess, like checking if you are physically getting closer to the GPS coordinates of the goal). By biasedly exploring nodes that "look" like they are moving in the right direction, A* dramatically cuts down computation time while still guaranteeing the perfect route. It powers video game AI and GPS systems globally.
                 </p>
             </motion.section>
+
+            <motion.section
+                className="glass-panel"
+                style={{ padding: '2rem', marginBottom: '2rem' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+            >
+                <h2>Types of Search Algorithms</h2>
+                <ul style={{ marginTop: '1rem', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Uninformed Search (Blind):</strong> Does not know where the goal is. Examples: Breadth-First Search (BFS) expands evenly in all directions; Depth-First Search (DFS) dives down a single path until reaching a dead end.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Informed Search (Heuristic):</strong> Uses a smart guess to bias exploration towards the goal. Example: A* Search uses Euclidean or Manhattan distance to massively speed up pathfinding.</li>
+                    <li style={{ marginBottom: '0.5rem' }}><strong>Adversarial Search:</strong> Used when facing an opponent. Example: Minimax simulates thousands of future moves in Chess or Tic-Tac-Toe, assuming the opponent plays perfectly, and selects the move with the best worst-case scenario.</li>
+                </ul>
+            </motion.section>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                style={{ width: '100%', maxWidth: '900px', margin: '0 auto 2rem auto' }}
+            >
+                <InterviewQA questions={algorithmsQuestions} />
+            </motion.div>
 
             <motion.div
                 initial={{ opacity: 0 }}
