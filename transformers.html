@@ -47,7 +47,8 @@
                     <h2>The "Attention is All You Need" Revolution</h2>
                     <p>Introduced by Google in 2017, the Transformer architecture revolutionized Natural Language
                         Processing by dispensing with recurrence (RNNs/LSTMs) entirely, relying solely on an
-                        <strong>Attention Mechanism</strong> to draw global dependencies between input and output.</p>
+                        <strong>Attention Mechanism</strong> to draw global dependencies between input and output.
+                    </p>
                 </section>
 
                 <div class="accordion delay-2">
@@ -132,21 +133,57 @@
 
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Interview Questions
+                            Deep Dive Q&A (A Curious Student's Treasure)
                             <span class="accordion-icon">▼</span>
                         </div>
                         <div class="accordion-content">
                             <ul style="margin-top: 1rem;">
-                                <li><strong>Why are Transformers faster to train than RNNs?</strong> Transformers
-                                    process sequences entirely in parallel, whereas RNNs process words sequentially
-                                    step-by-step.</li>
-                                <li><strong>What is Positional Encoding?</strong> Since Transformers have no recurrence
-                                    and process words in parallel, they need a way to track the order of words.
-                                    Positional embeddings are added to input embeddings to provide sequence context.
+                                <li>
+                                    <strong>Q: Before Transformers, how did AI read text, and why was it
+                                        bad?</strong><br>
+                                    <span class="text-muted">A: AI used Recurrent Neural Networks (RNNs) which read
+                                        words sequentially, like a human reading left-to-right. If a paragraph was 500
+                                        words long, by the time the RNN reached word 500, it had "forgotten" the context
+                                        of word 1. It was also incredibly slow to train because you couldn't process
+                                        word 50 until you finished word 49.</span>
                                 </li>
-                                <li><strong>Explain the formula for Scaled Dot-Product Attention?</strong>
-                                    <code>Attention(Q, K, V) = softmax(QK^T / sqrt(d_k))V</code>. Dividing by the square
-                                    root of dimensions prevents gradients from vanishing.</li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: Why are Transformers faster to train than RNNs?</strong><br>
+                                    <span class="text-muted">A: Transformers do not read sequentially; they read the
+                                        *entire sentence simultaneously* in parallel using matrix multiplication. This
+                                        means they can take full advantage of modern GPUs, reducing training time from
+                                        months to days.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: If Transformers read everything at once, how do they know the order of
+                                        words? ("Dog bites man" vs "Man bites dog")</strong><br>
+                                    <span class="text-muted">A: This is where <strong>Positional Encoding</strong> comes
+                                        in. Since the model has no concept of sequential time, we inject a mathematical
+                                        signature (using sine and cosine waves) into every word's embedding before it
+                                        enters the model. This acts like a "timestamp" so the model knows "Dog" is at
+                                        position 1 and "Man" is at position 3.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: Explain the abstract formula: `Attention(Q, K, V) = softmax(QK^T /
+                                        sqrt(d_k))V` without the jargon.</strong><br>
+                                    <span class="text-muted">A: Imagine you are at a library searching for a specific
+                                        book on physics. You have a search query (<strong>Query, Q</strong>). The
+                                        library's catalog system has titles for every book (<strong>Keys, K</strong>).
+                                        You compare your Query against all the Keys (QK^T) to get a "match score" of how
+                                        relevant each book is. You then turn those scores into percentages using
+                                        Softmax. Finally, you extract the actual content of the books (<strong>Values,
+                                            V</strong>), giving the most attention (multiply by percentage) to the books
+                                        that matched best.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: Why do we divide by the square root of dimensions (`sqrt(d_k)`) in that
+                                        formula?</strong><br>
+                                    <span class="text-muted">A: When multiplying large vectors (Q and K), the resulting
+                                        numbers can become massively large. When we pass those massive numbers into the
+                                        Softmax function, it outputs a `1` for the largest number and `0` for everything
+                                        else, making the gradient flat and killing the learning process. Dividing by
+                                        `sqrt(d_k)` scales the numbers down to keep gradients stable.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>

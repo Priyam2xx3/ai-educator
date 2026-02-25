@@ -137,22 +137,57 @@ Assistant: "1. Start with 5 apples. \n2. Give 2 to Mary (5 - 2 = 3). \n3. Buy 6 
 
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Interview Questions
+                            Deep Dive Q&A (A Curious Student's Treasure)
                             <span class="accordion-icon">▼</span>
                         </div>
                         <div class="accordion-content">
                             <ul style="margin-top: 1rem;">
-                                <li><strong>What is Hallucination in LLMs?</strong> When a model confidently generates
-                                    plausible but factually incorrect or nonsensical information because it is
-                                    predicting the next statistically likely token.</li>
-                                <li><strong>How does LoRA (Low-Rank Adaptation) work?</strong> A parameter-efficient
-                                    fine-tuning technique that injects trainable low-rank matrices into Transformer
-                                    layers while freezing the massive base model weights, allowing fine-tuning on a
-                                    single consumer GPU.</li>
-                                <li><strong>What is temperature in text generation?</strong> A parameter that scales the
-                                    logits before the softmax layer. High temperature (e.g., 0.9) increases
-                                    randomness/creativity, while low temperature (e.g., 0.1) makes outputs
-                                    deterministic.</li>
+                                <li>
+                                    <strong>Q: What is a Parameter in a Large Language Model (e.g., Llama 3 -
+                                        8B)?</strong><br>
+                                    <span class="text-muted">A: A parameter is a microscopic variable, specifically a
+                                        "weight" or "bias" inside the neural network's layers. When we say an LLM has 8
+                                        Billion parameters, it means there are 8 Billion individual numbers that were
+                                        carefully adjusted during training via calculus to store the model's knowledge
+                                        and reasoning abilities.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What causes an LLM to "Hallucinate" confidently false
+                                        information?</strong><br>
+                                    <span class="text-muted">A: LLMs do not "know" truths in a database; they are
+                                        fundamentally autocomplete engines predicting the next most statistically likely
+                                        word based on patterns in their training data. If you ask it for something
+                                        obscure, the mathematical patterns guide it to output something that *sounds*
+                                        plausible, even if it is entirely fiction.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: How does LoRA (Low-Rank Adaptation) make fine-tuning so much
+                                        cheaper?</strong><br>
+                                    <span class="text-muted">A: Normally, fine-tuning an 8B model requires updating all
+                                        8 billion parameters, costing thousands of dollars in GPU rent. LoRA freezes all
+                                        8 billion base weights and injects tiny "adapter" matrices into the network. You
+                                        only train these tiny adapters (maybe 1% of the total parameters). This allows
+                                        you to fine-tune a massive model on a single consumer GPU!</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What happens when the "Temperature" setting is changed?</strong><br>
+                                    <span class="text-muted">A: When an LLM predicts the next word, it generates a list
+                                        of probabilities (e.g., Cat: 80%, Dog: 15%, Car: 5%). Temperature scales these
+                                        probabilities before the final selection.<br>- <strong>Temp = 0.0:</strong>
+                                        Deterministic. Always picks the 80% word.<br>- <strong>Temp = 0.7:</strong>
+                                        Balanced. Usually picks top words, but sometimes picks the 15% word for
+                                        creativity.<br>- <strong>Temp > 1.0:</strong> High chaos. The probabilities
+                                        flatten out, making it start picking random words like "Car".</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What is Mixture of Experts (MoE), like in Mixtral 8x7B?</strong><br>
+                                    <span class="text-muted">A: A standard dense model uses all of its parameters for
+                                        every single word it generates, which is computationally expensive. An MoE model
+                                        divides its layers into smaller "Experts" (e.g., an expert in coding, an expert
+                                        in French). A router mechanism analyzes the input and only activates the
+                                        relevant 2 experts out of 8. This results in a massive model that runs as fast
+                                        as a small model!</span>
+                                </li>
                             </ul>
                         </div>
                     </div>

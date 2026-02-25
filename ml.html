@@ -143,17 +143,68 @@ print("Accuracy:", model.score(X_test, y_test))</code></pre>
 
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Interview Questions
+                            Deep Dive Q&A (A Curious Student's Treasure)
                             <span class="accordion-icon">▼</span>
                         </div>
                         <div class="accordion-content">
                             <ul style="margin-top: 1rem;">
-                                <li><strong>What is the bias-variance tradeoff?</strong> Explain how high bias leads to
-                                    underfitting and high variance leads to overfitting.</li>
-                                <li><strong>How do you handle imbalanced datasets?</strong> SMOTE, undersampling,
-                                    oversampling, and using different metrics like F1-Score instead of accuracy.</li>
-                                <li><strong>What is Cross-Validation?</strong> Explain k-fold cross-validation and why
-                                    it's better than a single train-test split.</li>
+                                <li>
+                                    <strong>Q: If I have a small dataset, which algorithm should I choose?</strong><br>
+                                    <span class="text-muted">A: For small datasets, simpler models like Naive Bayes,
+                                        Linear Regression, or Support Vector Machines (SVM) are preferred. Deep learning
+                                        (Neural Networks) or complex ensembles like Random Forest might overfit because
+                                        they have too many parameters to tune and not enough data to learn generalizing
+                                        patterns.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What really is the "Bias-Variance Tradeoff"? </strong><br>
+                                    <span class="text-muted">A: Imagine studying for a math test. If you just memorize
+                                        the answers to the practice test, you have high <strong>Variance</strong> (you
+                                        overfit to the training data, so when the real test has different numbers, you
+                                        fail). If you only learn that "math is about adding," you have high
+                                        <strong>Bias</strong> (you underfit, overly simplifying the problem). The
+                                        tradeoff is finding the sweet spot: understanding the underlying formulas
+                                        without just memorizing the examples.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: How do algorithms actually "learn" from data? What's the
+                                        mechanism?</strong><br>
+                                    <span class="text-muted">A: At the core, almost all algorithms "learn" by minimizing
+                                        an error function. They make a random guess, measure how wrong that guess was
+                                        (the Loss), and then use optimization mathematics (like Gradient Descent) to
+                                        slightly adjust their internal numbers (weights) so the next guess is a tiny bit
+                                        more accurate. They repeat this thousands of times.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What happens if I feed a Machine Learning model completely garbage,
+                                        random data?</strong><br>
+                                    <span class="text-muted">A: "Garbage In, Garbage Out." The model will still process
+                                        the math and output predictions, but the predictions will be entirely
+                                        meaningless. Worse, a complex model might actually find random noise and
+                                        memorize it, tricking you into thinking it learned a pattern when it didn't.
+                                        This highlights why Data Cleaning and Feature Engineering take up 80% of a Data
+                                        Scientist's time!</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: How do I handle an "imbalanced" dataset (e.g., 99 normal transactions vs
+                                        1 fraudulent out of 100)?</strong><br>
+                                    <span class="text-muted">A: If you use standard Accuracy, a model that just guesses
+                                        "Normal" every time will be 99% accurate but completely useless! To fix this,
+                                        you evaluate using the F1-Score instead of Accuracy. In the data processing
+                                        stage, you can use SMOTE (Synthetic Minority Over-sampling Technique) to
+                                        artificially generate more fraudulent examples, or apply heavy class weights to
+                                        penalize the model heavily when it misses that 1 fraudulent case.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: Why does scaling features matter? (e.g. Age: 0-100, Income:
+                                        0-100,000)</strong><br>
+                                    <span class="text-muted">A: Many ML algorithms (like KNN or SVM) use distance
+                                        calculations (like plotting on an X-Y graph) to figure out how similar data
+                                        points are. If Income is in the hundreds of thousands and Age is under 100, the
+                                        algorithm will mathematically treat Income as vastly more important simply
+                                        because the numbers are bigger. We "Scale" or "Normalize" data so all columns
+                                        range from 0 to 1, ensuring the algorithm treats them fairly.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>

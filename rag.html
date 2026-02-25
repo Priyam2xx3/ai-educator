@@ -131,22 +131,58 @@
 
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Interview Questions
+                            Deep Dive Q&A (A Curious Student's Treasure)
                             <span class="accordion-icon">▼</span>
                         </div>
                         <div class="accordion-content">
                             <ul style="margin-top: 1rem;">
-                                <li><strong>How does RAG compare to Fine-Tuning?</strong> Fine-tuning teaches the model
-                                    a new "style" or tone, but is terrible at implanting new "facts". RAG is excellent
-                                    at dynamically updating knowledge (you just update the database) without expensive
-                                    retraining.</li>
-                                <li><strong>What is the "Context Window" limit?</strong> LLMs can only read so much text
-                                    at once (e.g., 8k to 128k tokens). RAG ensures you only feed the model the most
-                                    vital paragraphs, keeping generation fast and costs low while bypassing the limit.
+                                <li>
+                                    <strong>Q: Why use RAG instead of just Fine-Tuning the LLM on my company's
+                                        data?</strong><br>
+                                    <span class="text-muted">A: Fine-tuning is like teaching someone how to speak like a
+                                        lawyer (tone/style). RAG is like giving that lawyer an open book during a test.
+                                        Fine-tuning to memorize facts is expensive, hard to update (you have to re-train
+                                        if a fact changes), and doesn't solve hallucination. RAG lets you instantly
+                                        update knowledge just by adding a new PDF to the database, and forces the LLM to
+                                        cite its sources, drastically reducing hallucinations.</span>
                                 </li>
-                                <li><strong>What is Cosine Similarity?</strong> The mathematical metric used to
-                                    determine how similar two vectors are by measuring the angle between them. 1 =
-                                    identical direction, 0 = orthogonal.</li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: If an LLM has a 1 Million token Context Window, why do we need Vector
+                                        Databases? Why not just paste all the PDFs into the prompt?</strong><br>
+                                    <span class="text-muted">A: 1. Cost: API providers charge per token. Sending a
+                                        million tokens for every single question gets incredibly expensive. 2. Speed:
+                                        Processing 1M tokens takes a lot of time (latency). 3. "Lost in the Middle":
+                                        Studies show LLMs struggle to find specific facts buried in the middle of
+                                        massive prompts. Vector DBs act as a rapid filter, pulling only the 3 most
+                                        relevant pages so the LLM answers quickly, cheaply, and accurately.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What is an "Embedding" in simple terms?</strong><br>
+                                    <span class="text-muted">A: Imagine mapping every concept in the universe onto a
+                                        massive 3D grid. "Dog" and "Cat" would be placed very close together. "Dog" and
+                                        "Carburetor" would be far apart. A neural network embedding model calculates
+                                        these exact coordinates (often in 1536 dimensions, not just 3) so a computer can
+                                        mathematically measure the "distance" (Cosine Similarity) between two
+                                        ideas.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What causes a RAG system to fail or give bad answers?</strong><br>
+                                    <span class="text-muted">A: Usually, it's terrible "Chunking". If you naively split
+                                        a PDF exactly every 500 characters, you might cut a crucial sentence in half.
+                                        When the user asks a question, the Vector search pulls up half a thought, and
+                                        the LLM can't understand it. Semantic chunking (making sure chunks break at
+                                        logical paragraphs or sections) is critical to RAG success.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: When would Vector Search fail, but traditional Keyword Search
+                                        succeed?</strong><br>
+                                    <span class="text-muted">A: Vector search is great for concepts. But if you search
+                                        for an exact serial number like `XJ-92A`, vector embeddings might struggle
+                                        because the alphanumeric code doesn't have deep "semantic meaning". Traditional
+                                        keyword search (like BM25) excels here. This is why enterprise systems use
+                                        "Hybrid Search"—running both algorithms simultaneously and blending the
+                                        results.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>

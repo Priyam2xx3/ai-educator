@@ -143,21 +143,63 @@ Final Answer: The capital of France is Paris, and the current weather is 15°C a
 
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Interview Questions
+                            Deep Dive Q&A (A Curious Student's Treasure)
                             <span class="accordion-icon">▼</span>
                         </div>
                         <div class="accordion-content">
                             <ul style="margin-top: 1rem;">
-                                <li><strong>What is the difference between an Agent and standard code
-                                        automation?</strong> A standard script follows a hard-coded path `if X then Y`.
-                                    An Agent determines its own path to reach a goal, handling unexpected errors
-                                    autonomously by trying different tools.</li>
-                                <li><strong>What is infinite loop failure?</strong> When an agent gets stuck repeatedly
-                                    making the same tool call, getting the same error, because the LLM fails to reason
-                                    out a new strategy.</li>
-                                <li><strong>Summarize the ReAct methodology.</strong> It stands for Reason and Act. The
-                                    model is forced to explicitly output its reasoning (Thought) before outputting a
-                                    tool command (Action), vastly improving reliability.</li>
+                                <li>
+                                    <strong>Q: What is the defining difference between a basic LLM Chatbot (like
+                                        ChatGPT) and an AI Agent?</strong><br>
+                                    <span class="text-muted">A: A chatbot is reactive: it answers a single prompt and
+                                        stops. An Agent is proactive and autonomous: given a high-level goal ("plan my
+                                        vacation"), it will independently break the goal into subtasks, execute an
+                                        action (search flights), observe the result, adjust its plan if the action
+                                        failed, and loop iteratively until the final objective is achieved. </span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: How does an LLM actually "use a tool" or "call an API"?</strong><br>
+                                    <span class="text-muted">A: Function calling! We give the LLM a text description of
+                                        the available tools (e.g., `get_weather(city: string)`). When the user asks "How
+                                        is the weather in Tokyo?", the LLM recognizes it needs that tool. Instead of
+                                        generating an English response, the LLM outputs a specific JSON object:
+                                        `{"name": "get_weather", "arguments": {"city": "Tokyo"}}`. Our background code
+                                        parses that JSON, runs the actual Python code/API, gets the result (e.g., 20°C),
+                                        and sends that result *back* into the LLM as a new hidden prompt. The LLM then
+                                        finally says, "It is 20°C in Tokyo."</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: Why do Agents sometimes get stuck in an "Infinite Loop"?</strong><br>
+                                    <span class="text-muted">A: If an agent calls a tool (e.g., `web_search`) and gets
+                                        an error from the server, a smart agent (like GPT-4) will read the error,
+                                        realize it made a mistake, and try a different search term. A weaker agent (like
+                                        a smaller open-source model) might lack the reasoning to fix the error, so it
+                                        just tries the exact same broken search again, gets the same error, tries
+                                        again... looping forever until forced to stop. Engineering robust error-handling
+                                        prompts into the agent loop is critical.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: Explain the value of "ReAct" prompting. Why is the "Thought" so
+                                        important?</strong><br>
+                                    <span class="text-muted">A: ReAct stands for Reasoning and Acting. If an LLM goes
+                                        straight from the Question to the Action, it often acts impulsively or makes
+                                        logic errors. By forcing the LLM to explicitly write out its internal monologue
+                                        (Thought: "I need to find X before I can calculate Y..."), we give the neural
+                                        network "computational space" to process the logic before it commits to an
+                                        action. It dramatically reduces errors and improves complex task
+                                        completion.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: How do Multi-Agent systems (like CrewAI or AutoGen) work, and why not
+                                        just use one smart agent?</strong><br>
+                                    <span class="text-muted">A: If you ask one agent to write code, test it, and review
+                                        its security, it suffers from "role confusion" or agrees with its own mistakes.
+                                        In a Multi-Agent system, you instantiate three separate agents with different
+                                        system prompts: A Coder, a Tester, and a Security Auditor. The Coder writes the
+                                        script and passes it to the Tester. The Tester runs it, finds a bug, and argues
+                                        with the Coder to fix it. This adversarial collaboration mimics a real human
+                                        company and produces significantly higher quality results.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>

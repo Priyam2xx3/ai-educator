@@ -121,23 +121,66 @@
 
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            Interview Questions
+                            Deep Dive Q&A (A Curious Student's Treasure)
                             <span class="accordion-icon">▼</span>
                         </div>
                         <div class="accordion-content">
                             <ul style="margin-top: 1rem;">
-                                <li><strong>Why is Cross-Entropy used for Classification instead of MSE?</strong> MSE
-                                    expects continuous values. In classification, outputs are raw probabilities (e.g.,
-                                    [0.9, 0.1]). Cross-Entropy directly penalizes the probability of the wrong class
-                                    logarithmically, creating steeper, faster gradients for the network to train on.
+                                <li>
+                                    <strong>Q: Why do we use Cross-Entropy for Classification instead of Mean Squared
+                                        Error (MSE)?</strong><br>
+                                    <span class="text-muted">A: MSE expects continuous numbers (like predicting a house
+                                        price of $300,500). In classification, outcomes are probabilities of distinct
+                                        categories (e.g., 90% Dog, 10% Cat). Cross-Entropy uses logarithms to heavily
+                                        penalize the model when it is confidently wrong. If the model says "99% Cat" but
+                                        it's actually a Dog, Cross-Entropy causes the error (Loss) to explode towards
+                                        infinity, creating a massive, corrective gradient update that MSE could never
+                                        achieve.</span>
                                 </li>
-                                <li><strong>What is the Learning Rate?</strong> The size of the "steps" the optimizer
-                                    takes downwards towards the minimum loss. Too big, and it jumps over the minimum;
-                                    too small, and it takes forever to train.</li>
-                                <li><strong>Why does Adam sometimes fail to generalize compared to SGD?</strong> Adam
-                                    adapts its learning rates aggressively, which can cause it to converge quickly to
-                                    sharp, narrow local minima in the loss landscape, whereas SGD's noise often pushes
-                                    it towards broader, more generalized minima.</li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What is the "Learning Rate" and why is it so hard to tune?</strong><br>
+                                    <span class="text-muted">A: Imagine walking blindly down a mountain to find the
+                                        lowest valley. The Learning Rate is the size of your steps. If the step is too
+                                        big, you'll constantly overshoot the valley and bounce up the other side
+                                        (divergence). If the step is too small, it will take you a million tiny
+                                        shuffling steps to reach the bottom (slow training). Finding the perfect step
+                                        size is a delicate art.</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: Why does the Adam Optimizer sometimes fail to generalize well compared to
+                                        SGD?</strong><br>
+                                    <span class="text-muted">A: Adam mathematically adapts its step size for every
+                                        individual parameter, meaning it aggressively sprints straight down into the
+                                        nearest, sharpest valley in the loss landscape. While fast, sharp valleys often
+                                        mean the model memorized the training data and will perform poorly on new data.
+                                        SGD (Stochastic Gradient Descent) uses a fixed step size and inherently has
+                                        "noise" (randomness) in its direction. This noise often bumps it out of sharp
+                                        valleys and pushes it into broad, flat valleys, which mathematically represents
+                                        finding universally true, generalizing patterns!</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: Explain the difference between Precision and Recall. When does one matter
+                                        more?</strong><br>
+                                    <span class="text-muted">A: <strong>Precision</strong> prevents False Positives
+                                        ("Out of all the people I arrested, how many were actually guilty?").
+                                        <strong>Recall</strong> prevents False Negatives ("Out of all the guilty people
+                                        in the city, how many did I catch?").<br>We optimize for
+                                        <strong>Precision</strong> in YouTube recommendations (If we recommend a bad
+                                        video, the user leaves. A false positive is terrible).<br>We optimize for
+                                        <strong>Recall</strong> in Cancer Screening (If we miss a tumor, the patient
+                                        dies. A false negative is fatal. It's better to flag a benign spot for further
+                                        testing).</span>
+                                </li>
+                                <li style="margin-top: 1rem;">
+                                    <strong>Q: What is the F1-Score, and why use it instead of overall
+                                        Accuracy?</strong><br>
+                                    <span class="text-muted">A: Overall Accuracy fails spectacularly on unbalanced data.
+                                        If a factory produces 99 good parts and 1 broken part, a model that simply
+                                        always says "Good Part" is 99% accurate, but completely useless at its job! The
+                                        F1-Score combines Precision and Recall mathematically (their harmonic mean) into
+                                        a single number that severely punishes the model if it completely ignores one of
+                                        the classes, ensuring true balanced performance.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
